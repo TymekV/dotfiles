@@ -1,0 +1,121 @@
+{{ if eq .chezmoi.os "darwin" -}}
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+{{ end -}}
+
+#export JAVA_HOME="$(/usr/libexec/java_home)"
+alias p="cd ~/Documents/Projekty"
+
+alias fakecam="scrcpy --video-source=camera --camera-id=0 --no-audio-playback --select-tcpip --camera-fps=60"
+alias cam="scrcpy --video-source=camera --no-audio --camera-size=1920x1080 --v4l2-sink=/dev/video0 --no-playback --camera-fps=60 --no-window"
+alias ipa="cd '/Users/tymek/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps'"
+alias rmquarantine="xattr -d com.apple.quarantine"
+
+alias cd="z"
+alias cat="bat"
+alias dc="docker compose"
+alias lip="ip -4 addr show scope global | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
+alias ls="eza"
+
+title() {
+    kitty @ set-tab-title "$*"
+}
+
+fgc() {
+    git clone "ssh://git@git.agin.rocks/$1.git"
+}
+
+fgset() {
+    git remote set-url origin "ssh://git@git.agin.rocks/$1.git"
+}
+
+fgadd() {
+    git remote add origin "ssh://git@git.agin.rocks/$1.git"
+}
+
+ghc() {
+    git clone "ssh://git@github.com/$1.git"
+}
+
+esc() {
+    git clone "ssh://git@git.e-science.pl/$1.git"
+}
+
+kwc() {
+    git clone "ssh://git@rizznode:7505/$1.git"
+}
+
+rmsign() {
+    git rebase --root --exec 'author=$(git log -1 --pretty=%ae); if [ "$author" != "vonautymek@gmail.com" ]; then git commit --amend --no-gpg-sign --no-edit --allow-empty; fi'
+}
+
+canoncam() {
+    #sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 card_label="Canon"
+    sudo pkill -9 gphoto
+    gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -af "hqdn3d" -pix_fmt yuv420p -threads 0 -s:v 1920x1080 -f v4l2 /dev/video0
+}
+
+export EDITOR="nvim"
+export VISUAL="zed --wait"
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+fi
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/tymek/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+source <(helm completion zsh)
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
+
+# pnpm
+export PNPM_HOME="/home/tymek/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Created by `pipx` on 2025-08-28 15:22:33
+export PATH="$PATH:/home/tymek/.local/bin"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/tymek/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/tymek/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+if [[ "$(uname -s)" == "Linux" ]]; then
+  source /usr/share/doc/pkgfile/command-not-found.zsh
+  export ANDROID_HOME=$HOME/Android/Sdk
+else
+  export ANDROID_HOME="/Users/tymek/Library/Android/sdk"
+fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"

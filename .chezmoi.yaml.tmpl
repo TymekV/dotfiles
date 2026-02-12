@@ -1,0 +1,4 @@
+{{ $isLaptop := promptBoolOnce . "laptop" "Is this device a laptop" false -}}
+
+data:
+  isLaptop: {{ $isLaptop }}
