@@ -7,3 +7,8 @@ include keybinds.conf
 allow_remote_control true
 
 text_fg_override_treshold 4.0
+
+{{ if eq .chezmoi.os "darwin" -}}
+hide_window_decorations titlebar-only
+background_blur 32
+{{ end -}}

@@ -1,0 +1,7 @@
+# theme = /Applications/Ghostty.app/Contents/Resources/ghostty/themes/GitHub Dark
+theme = catppuccin-mocha.conf
+background-opacity = 0.8
+background-blur = true
+macos-titlebar-style = hidden
+quit-after-last-window-closed = true
+keybind = shift+enter=text:\x1b\r

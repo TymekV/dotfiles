@@ -1,5 +1,18 @@
 .config/hypr/dms
+.config/sketchybar/.git
+
+# Linux-specific configuration
 {{ if ne .chezmoi.os "linux" -}}
 .config/gtk-*
 .config/qt{5,6}ct
-{{ end }}
+.config/hypr
+.config/DankMaterialShell
+{{ end -}}
+
+# macOS-specific configuration
+{{ if ne .chezmoi.os "darwin" -}}
+.config/sketchybar
+.config/yabai
+.config/skhd
+.config/borders
+{{ end -}}

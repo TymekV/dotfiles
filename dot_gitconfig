@@ -1,7 +1,7 @@
 [user]
 	name = Tymek
 	email = vonautymek@gmail.com
-	signingkey = /home/tymek/.ssh/id_ed25519.pub
+	signingkey = ~/.ssh/id_ed25519.pub
 [core]
 	autocrlf = input
 [gpg]

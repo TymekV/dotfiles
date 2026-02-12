@@ -1,0 +1,29 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+yabai -m config layout bsp
+
+yabai -m config \
+  window_animation_duration 0.2 \
+  window_animation_easing ease_out_circ \
+  window_placement second_child \
+  window_insertion_point focused \
+  top_padding 7 \
+  bottom_padding 8 \
+  left_padding 8 \
+  right_padding 8 \
+  window_gap 8 \
+  window_shadow off \
+  focus_follows_mouse autoraise \
+  mouse_follows_focus on \
+  split_ratio 0.5 \
+  external_bar all:36:0 \
+  mouse_modifier alt
+
+# external bar 36 on normal scaling, top padding 10
+
+# Exclude problematic apps from being managed:
+yabai -m rule --add app="^(LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
