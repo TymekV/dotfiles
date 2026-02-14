@@ -2,3 +2,8 @@ title-hidden = true
 {{ if eq .chezmoi.os "darwin" -}}
 frame = "buttonless"
 {{ end -}}
+{{ if not .isLaptop -}}
+[font]
+normal = ["JetBrainsMono Nerd Font"]
+size = 10.0
+{{ end }}
