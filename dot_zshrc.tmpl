@@ -15,33 +15,34 @@ alias cat="bat"
 alias dc="docker compose"
 alias lip="ip -4 addr show scope global | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 alias ls="eza"
+alias conf="neovide ~/.local/share/chezmoi & disown"
 
 title() {
     kitty @ set-tab-title "$*"
 }
 
 fgc() {
-    git clone "ssh://git@git.agin.rocks/$1.git"
+    git clone "ssh://git@git.agin.rocks/$1.git" "${@:2}"
 }
 
 fgset() {
-    git remote set-url origin "ssh://git@git.agin.rocks/$1.git"
+    git remote set-url origin "ssh://git@git.agin.rocks/$1.git" "${@:2}"
 }
 
 fgadd() {
-    git remote add origin "ssh://git@git.agin.rocks/$1.git"
+    git remote add origin "ssh://git@git.agin.rocks/$1.git" "${@:2}"
 }
 
 ghc() {
-    git clone "ssh://git@github.com/$1.git"
+    git clone "ssh://git@github.com/$1.git" "${@:2}"
 }
 
 esc() {
-    git clone "ssh://git@git.e-science.pl/$1.git"
+    git clone "ssh://git@git.e-science.pl/$1.git" "${@:2}"
 }
 
 kwc() {
-    git clone "ssh://git@rizznode:7505/$1.git"
+    git clone "ssh://git@rizznode:7505/$1.git" "${@:2}"
 }
 
 rmsign() {
