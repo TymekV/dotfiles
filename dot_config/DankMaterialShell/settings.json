@@ -411,10 +411,6 @@
           "enabled": true
         },
         {
-          "id": "battery",
-          "enabled": true
-        },
-        {
           "id": "notepadButton",
           "enabled": true
         },
