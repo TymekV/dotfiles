@@ -1,0 +1,153 @@
+# yaml-language-server: $schema=https://github.com/TymekV/chezpilot/raw/refs/heads/master/schema.json
+conditions:
+  arch:
+    os:
+      - kind: linux
+        distro: [arch]
+      - kind: linux
+        distro_like: [arch]
+  macos:
+    os:
+      - kind: macos
+  gaming:
+    label: gaming
+    default: true
+  dev:
+    label: dev
+    default: true
+  creative:
+    label: creative
+    default: true
+groups:
+  - name: core utilities
+    conditions: [arch]
+    packages:
+      - manager: pacman
+        install:
+          repo:
+            # System & CLI basics
+            - git
+            - neovim
+            - zsh
+            - starship
+            - zoxide
+            - fzf
+            - ripgrep
+            - bat
+            - eza
+            - btop
+            - fastfetch
+            - ncdu
+            - reflector
+            - rsync
+
+            # File & archive tools
+            - 7zip
+            - unrar
+            - zip
+            - file-roller
+
+            # Audio & video basics
+            - pipewire
+            - pipewire-alsa
+            - pipewire-pulse
+            - pipewire-jack
+            - wireplumber
+            - pavucontrol
+            - vlc
+            - mpv
+            - celluloid
+
+            # Browsers & communication
+            - chromium
+            - bitwarden
+            - discord
+            - signal-desktop
+            - thunderbird
+
+            # Productivity basics
+            - libreoffice-still
+            - obsidian
+            - gnome-disk-utility
+            - gparted
+
+            # Networking & sharing
+            - syncthing
+            - tailscale
+            - kdeconnect
+            - localsend
+            - remmina
+
+            # Music
+            - feishin-git # music
+
+          aur:
+            - zen-browser-bin
+            - helium-browser-bin
+            - slack-desktop
+
+            # Music
+            - spicetify-cli # spotify customization (creative audio tweaking)
+            - spicetify-marketplace-bin
+
+  - name: gaming
+    conditions: [arch, gaming]
+    packages:
+      - manager: pacman
+        install:
+          repo:
+            - steam # main gaming platform
+            - gamemode # performance governor
+            - mangohud # FPS / overlay
+            - gamescope # game compositor
+
+          aur:
+            - bottles # Wine prefix manager
+            - heroic-games-launcher-bin # Epic / GOG
+            - protonplus # Proton version manager
+            - protontricks-git
+
+  - name: dev
+    conditions: [arch, dev]
+    packages:
+      - manager: pacman
+        install:
+          repo:
+            - base-devel
+            - rustup
+            - python-pip
+            - python-pipx
+            - nodejs
+            - npm
+            - docker
+            - docker-compose
+            - docker-buildx
+            - kubectl
+            - helm
+            - cmake
+            - git-lfs
+            - zed
+
+          aur:
+            - android-studio
+            - android-sdk
+            - android-sdk-platform-tools
+            - flutter-bin
+            - visual-studio-code-bin
+            - mongodb-compass
+
+  - name: creative
+    conditions: [arch, creative]
+    packages:
+      - manager: pacman
+        install:
+          repo:
+            - blender
+            - gimp
+            - inkscape
+            - kdenlive
+            - obs-studio
+
+          aur:
+            - pinta # FOSS Paint
+            - nomacs # image viewer
