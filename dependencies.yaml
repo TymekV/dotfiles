@@ -40,6 +40,7 @@ groups:
             - ncdu
             - reflector
             - rsync
+            - ghex
 
             # File & archive tools
             - 7zip
