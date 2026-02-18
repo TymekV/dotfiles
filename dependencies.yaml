@@ -42,6 +42,7 @@ groups:
             - rsync
             - ghex
             - sshfs
+            - rbw
 
             # File & archive tools
             - 7zip

@@ -1,4 +1,13 @@
+encryption: age
+age:
+  identities:
+    - ~/.config/sops/age/keys.txt
+  recipients:
+    # tymek-arch
+    - age1nrets6x8g0fmlsj6yt7zymwm6965nwqaajf0640lrkynz75lxcqqwcadpj
+
 {{ $isLaptop := promptBoolOnce . "laptop" "Is this device a laptop" false -}}
 
 data:
   isLaptop: {{ $isLaptop }}
+

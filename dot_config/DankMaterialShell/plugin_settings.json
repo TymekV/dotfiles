@@ -1,0 +1,65 @@
+{
+  "emojiLauncher": {
+    "enabled": true
+  },
+  "dockerManager": {
+    "enabled": true,
+    "terminalApp": "kitty",
+    "groupByCompose": false
+  },
+  "kubernetes": {
+    "enabled": false
+  },
+  "dankPomodoroTimer": {
+    "enabled": false
+  },
+  "tailscale": {
+    "enabled": false
+  },
+  "dankNotepadModule": {
+    "enabled": false,
+    "style": "catppuccin-mocha"
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "fd959c59b37247fe991ad8112749f4fc"
+  },
+  "dankHyprlandWindows": {
+    "enabled": false
+  },
+  "dankBitwarden": {
+    "enabled": true,
+    "trigger": "bw",
+    "noTrigger": false,
+    "copyToClipboard": true
+  },
+  "webSearch": {
+    "enabled": true,
+    "searchEngines": [
+      {
+        "id": "forgejo",
+        "name": "Forgejo",
+        "icon": "unicode:",
+        "url": "https://git.agin.rocks/explore/repos?q=%s",
+        "keywords": [
+          "fg"
+        ]
+      }
+    ],
+    "disabledEngines": [
+      "nixopts",
+      "google",
+      "brave",
+      "bing",
+      "kagi",
+      "amazon",
+      "ebay",
+      "images",
+      "nixpkgs"
+    ],
+    "defaultEngine": "google"
+  },
+  "developerUtilities": {
+    "enabled": true
+  }
+}
