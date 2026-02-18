@@ -90,6 +90,7 @@ groups:
 
             # Utilities
             - saber-bin # notes
+            - dsearch-bin
 
             # Music
             - spicetify-cli # spotify customization (creative audio tweaking)
