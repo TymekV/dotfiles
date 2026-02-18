@@ -41,6 +41,7 @@ groups:
             - reflector
             - rsync
             - ghex
+            - sshfs
 
             # File & archive tools
             - 7zip
