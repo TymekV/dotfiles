@@ -73,6 +73,7 @@ groups:
             - obsidian
             - gnome-disk-utility
             - gparted
+            - errands # TODO
 
             # Networking & sharing
             - syncthing
