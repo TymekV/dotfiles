@@ -14,7 +14,7 @@
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "popupTransparency": 1,
-  "dockTransparency": 0,
+  "dockTransparency": 1,
   "widgetBackgroundColor": "sth",
   "widgetColorMode": "default",
   "controlCenterTileColorMode": "primary",
