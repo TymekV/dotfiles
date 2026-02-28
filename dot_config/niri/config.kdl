@@ -58,7 +58,7 @@ layout {
     width 2
     active-color "#545454ed"
     inactive-color "#7a829640"
-    urgent-color "#9b0000"
+    urgent-color "#f38ba8"
   }
   shadow {
     on
@@ -68,6 +68,11 @@ layout {
     offset x=0 y=5
     color "#0007"
   }
+
+  insert-hint {
+    on
+    color "#cba6f760"
+  }
 }
 
 prefer-no-csd
@@ -75,6 +80,8 @@ prefer-no-csd
 config-notification { disable-failed; } // DMS has one
 
 debug { honor-xdg-activation-with-invalid-serial; } // focus broken apps from notifications
+
+recent-windows { highlight { corner-radius 10; }; }
 
 hotkey-overlay { skip-at-startup; }
 
@@ -106,6 +113,18 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+layer-rule {
+  match namespace="dms:slideout"
+  match namespace="dms:clipboard$"
+
+  block-out-from "screencast"
 }
 
 binds {
