@@ -136,6 +136,9 @@ binds {
   MOD+SPACE   hotkey-overlay-title="Open App Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
   MOD+V       hotkey-overlay-title="Open Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
   Mod+Slash   hotkey-overlay-title="Open Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+  Mod+E   hotkey-overlay-title="Open Nautilus" { spawn "nautilus"; }
+  Mod+G   hotkey-overlay-title="Open Feishin" { spawn "feishin"; }
+  Mod+D   hotkey-overlay-title="Open Discord" { spawn "discord"; }
 
   Mod+P hotkey-overlay-title="Lock Screen" { spawn "loginctl" "lock-session"; }
 
