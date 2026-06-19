@@ -41,6 +41,13 @@ $env.config.highlight_resolved_externals = true
 $env.PROMPT_INDICATOR_VI_INSERT = ""
 $env.PROMPT_INDICATOR_VI_NORMAL = ""
 $env.config.show_banner = false
+$env.config.history = {
+    file_format: "sqlite"
+    max_size: 100000
+    sync_on_enter: true
+    isolation: true
+    ignore_space_prefixed: true
+}
 
 # Load Starship
 nu-mkdir ($nu.data-dir | path join "vendor/autoload")
