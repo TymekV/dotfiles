@@ -22,6 +22,7 @@ source ~/.zoxide.nu
 
 # Load configuration
 source "aliases.nu"
+source "title.nu"
 source "themes/catppuccin_mocha.nu"
 
 $env.config.edit_mode = 'vi'
