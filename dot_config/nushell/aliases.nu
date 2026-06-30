@@ -4,6 +4,8 @@ alias dc = docker compose
 alias nu-mkdir = mkdir
 alias mkdir = ^mkdir
 alias p = cd ~/Documents/Projekty
+alias o = open
+alias open = ^open
 # alias ls = eza
 
 # Camera
