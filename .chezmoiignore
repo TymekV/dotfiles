@@ -16,4 +16,5 @@
 .config/yabai
 .config/skhd
 .config/borders
+Library/Application Support/nushell
 {{ end -}}

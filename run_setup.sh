@@ -1,2 +1,2 @@
 #!/bin/sh
-chezpilot apply -f ./dependencies.yaml
+# chezpilot apply -f ./dependencies.yaml
