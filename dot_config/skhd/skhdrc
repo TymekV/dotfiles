@@ -33,7 +33,7 @@ lalt - m : yabai -m window --toggle zoom-fullscreen
 # Toggle window native fullscreen
 shift + lalt - m : yabai -m window --toggle native-fullscreen
 
-# Make window zoom to parent node: lalt - f 
+# Make window zoom to parent node: lalt - f
 # lalt - f : yabai -m window --toggle zoom-parent
 
 ## Window Movement (shift + lalt - ...)
@@ -106,6 +106,6 @@ ctrl + lalt - e : yabai -m space --balance
 # shift + lalt - space : sketchybar --bar hidden=toggle
 
 # Apps
-lalt - return : open -n -a "kitty"
-lalt - z : open -n -a "Zen"
-shift + lalt - z : open -n -a "Zed"
+lalt - return : ^open -n -a "kitty"
+lalt - z : ^open -n -a "Zen"
+shift + lalt - z : ^open -n -a "Zed"
