@@ -6,6 +6,7 @@ alias mkdir = ^mkdir
 alias p = cd ~/Documents/Projekty
 alias o = open
 alias open = ^open
+alias k = ^kubectl
 # alias ls = eza
 
 # Camera
