@@ -27,6 +27,8 @@ $env.PATH ++= [
     ($env.HOME | path join ".cargo/bin")
 ]
 
+source "secrets.nu"
+
 source "themes/fzf_catppuccin_mocha.nu"
 
 source "keybinds.nu"
