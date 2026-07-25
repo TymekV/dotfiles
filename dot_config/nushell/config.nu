@@ -23,6 +23,7 @@ source ~/.zoxide.nu
 # Load configuration
 source "aliases.nu"
 source "title.nu"
+source "completions.nu"
 source "themes/catppuccin_mocha.nu"
 
 $env.config.edit_mode = 'vi'
@@ -48,6 +49,12 @@ $env.config.history = {
     sync_on_enter: true
     isolation: true
     # ignore_space_prefixed: true
+}
+$env.config.completions = {
+    external: {
+        enable: true
+        completer: $fish_completer
+    }
 }
 
 # Load Starship
