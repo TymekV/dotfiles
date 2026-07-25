@@ -21,9 +21,10 @@
 source ~/.zoxide.nu
 
 # Load configuration
-source "aliases.nu"
 source "title.nu"
 source "completions.nu"
+source "kubectl-utils.nu"
+source "aliases.nu"
 source "themes/catppuccin_mocha.nu"
 
 $env.config.edit_mode = 'vi'
