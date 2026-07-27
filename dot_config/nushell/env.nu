@@ -22,12 +22,22 @@ $env.CCACHE_EXEC = "/usr/bin/ccache"
 $env.EDITOR = "nvim"
 $env.VISUAL = "zed --wait"
 $env.config.buffer_editor = "nvim"
+$env.SOPS_AGE_KEY_FILE = ($env.HOME | path join ".config/sops/age/keys.txt")
 $env.PATH ++= [
     ($env.HOME | path join ".local/bin"),
     ($env.HOME | path join ".cargo/bin")
 ]
 
 source "secrets.nu"
+
+if $nu.os-info.name == "macos" {
+    $env.PATH = (
+        $env.PATH
+        | prepend "/opt/homebrew/sbin"
+        | prepend "/opt/homebrew/bin"
+        | uniq
+    )
+}
 
 source "themes/fzf_catppuccin_mocha.nu"
 

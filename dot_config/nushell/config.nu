@@ -26,6 +26,7 @@ source "completions.nu"
 source "kubectl-utils.nu"
 source "aliases.nu"
 source "themes/catppuccin_mocha.nu"
+source "helpers/kubernetes.nu"
 
 $env.config.edit_mode = 'vi'
 $env.config.cursor_shape = {
