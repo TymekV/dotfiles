@@ -16,11 +16,31 @@ def "nu-complete k" [context: string] {
     do $env.config.completions.external.completer ["kubectl", ...$spans]
 }
 
+
+def into-int-safe [col: string] {
+    let t = $in
+    if $col in ($t | columns) {
+        $t | into int $col
+    } else {
+        $t
+    }
+}
+
+def is-upper [c: string] {
+    $c == ($c | str uppercase) and $c != ($c | str lowercase)
+}
+
 def --wrapped kubectl [...args: string@"nu-complete kubectl"] {
     let result = (^kubectl ...$args)
+
+    if not (is-upper ($result | str substring 0..1)) {
+        return $result
+    }
+
     try {
         match $args {
-            [get, _, ..$rest] => { $result | kt }
+            [get, _, ..$rest] => { $result | kt | into-int-safe RESTARTS }
+            [top, _, ..$rest] => { $result | kt }
             _ => $result
         }
     } catch {
