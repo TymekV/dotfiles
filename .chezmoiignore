@@ -19,3 +19,7 @@
 .config/borders
 Library/Application Support/nushell
 {{ end -}}
+
+{{ if ne .chezmoi.hostname "tymek-framework" -}}
+.config/niri/laptop.kdl
+{{ end -}}

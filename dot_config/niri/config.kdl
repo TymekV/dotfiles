@@ -4,6 +4,7 @@ include "dms/wpblur.kdl"
 include "dms/cursor.kdl"
 include "dms/outputs.kdl"
 include "workspaces.kdl"
+include optional=true "laptop.kdl"
 
 input {
   keyboard {
@@ -11,7 +12,11 @@ input {
     numlock
   }
 
-  touchpad { off; }
+  touchpad {
+    natural-scroll
+    tap-button-map "left-right-middle"
+    click-method "clickfinger"
+  }
 
   warp-mouse-to-focus
   focus-follows-mouse max-scroll-amount="20%"
