@@ -7,10 +7,77 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cursor_animation": {
+    "enabled": true
+  },
+  "diff_view_style": "unified",
+  "which_key": {
+    "delay_ms": 500,
+    "enabled": true,
+  },
+  "format_on_save": "on",
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+  },
+  "focus_follows_mouse": {
+    "debounce_ms": 0,
+    "enabled": true,
+  },
+  "cli_default_open_behavior": "new_window",
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  {{ if .isLaptop -}}
+  "buffer_font_size": 13,
+  {{ else -}}
+  "buffer_font_size": 12,
+  {{ end -}}
+  "ssh_connections": [
+    {
+      "host": "media",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/media"],
+        },
+        {
+          "paths": ["/home/media/podman"],
+        },
+        {
+          "paths": ["/home/seba/docker-new/sensors"],
+        },
+        {
+          "paths": ["/home/seba/docker/sensors"],
+        },
+      ],
+    },
+    {
+      "host": "192.168.1.103",
+      "username": "docker",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/docker"],
+        },
+      ],
+    },
+    {
+      "host": "risscontrol",
+      "args": [],
+      "projects": [],
+    },
+    {
+      "host": "rizznode",
+      "args": [],
+      "projects": [],
+    },
+  ],
   "disable_ai": false,
   "redact_private_values": false,
   "edit_predictions": {
-    "provider": "none"
+    "provider": "none",
   },
   "tab_bar": {
     "show_nav_history_buttons": true,
@@ -21,10 +88,9 @@
     "show_sign_in": true,
     "show_branch_name": true,
   },
-  "focus_follows_mouse": {
-    "enabled": true
-  },
   "git_panel": {
+    "group_by": "none",
+    "tree_view": true,
     "dock": "left",
   },
   "outline_panel": {
@@ -38,6 +104,13 @@
   "base_keymap": "VSCode",
   "icon_theme": "Catppuccin Mocha",
   "context_servers": {
+    "ida-pro-mcp": {
+      "enabled": true,
+      "remote": false,
+      "command": "/usr/bin/python3",
+      "args": ["/usr/lib/python3.14/site-packages/ida_pro_mcp/server.py"],
+      "timeout": 1800,
+    },
     "mcp-server-context7": {
       "enabled": true,
       "settings": {
@@ -46,16 +119,29 @@
     },
   },
   "agent": {
+    "tool_permissions": {
+      "tools": {
+        "mcp:ida-pro-mcp:list_strings_filter": {
+          "default": "allow",
+        },
+        "mcp:ida-pro-mcp:decompile_function": {
+          "default": "allow",
+        },
+      },
+    },
+    "dock": "right",
     "default_profile": "write",
-    "play_sound_when_agent_done": "when_hidden",
+    "play_sound_when_agent_done": "always",
     "inline_assistant_model": {
       "provider": "zed.dev",
       "model": "claude-3-7-sonnet",
     },
     "model_parameters": [],
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
+      "effort": "medium",
+      "enable_thinking": true,
+      "provider": "zed.dev",
+      "model": "gpt-5.6-sol",
     },
   },
   "vim_mode": true,
@@ -65,11 +151,7 @@
     "diagnostics": false,
   },
   "ui_font_size": 14,
-  {{ if .isLaptop -}}
-  "buffer_font_size": 13,
-  {{ else -}}
   "buffer_font_size": 12,
-  {{ end -}}
   "theme": {
     "mode": "system",
     "light": "Vercel Light",
@@ -88,7 +170,7 @@
       "padding": 4,
       "min_column": 0,
       "max_severity": null,
-    }
+    },
   },
   // "inlay_hints": {
   //   "enabled": true,
@@ -97,6 +179,7 @@
   //   "show_background": false,
   // },
   "terminal": {
+    "font_size": 12.0,
     "line_height": "standard",
     "font_family": "JetBrainsMono Nerd Font",
     "font_features": {
@@ -124,6 +207,14 @@
         "show_background": false,
       },
     },
+    "Nix": {
+      "formatter": {
+        "external": {
+          "command": "alejandra",
+          "arguments": ["--quiet", "--"],
+        },
+      },
+    },
   },
   "lsp": {
     "rust-analyzer": {
@@ -133,35 +224,47 @@
         },
       },
     },
-    "tinymist": {
-    // "binary": {
-    //   "arguments": ["lsp", "--mirror", "/tmp/tinymist.log"]
-    // },
-    "initialization_options": {
-      "preview": {
-        "background": {
-          "enabled": true,
-          // "args": [
-          //   "--data-plane-host=127.0.0.1:23635",
-          //   "--invert-colors=never",
-          // ],
+    "kotlin-language-server": {
+      "settings": {
+        "compiler": {
+          "jvm": {
+            "target": "17",
+          },
         },
       },
     },
-    "settings": {
-      "exportpdf": "onsave",
-      "outputpath": "$root/$name",
-      "lint": {
-        "enabled": true,
-        "when": "ontype",
+    "tinymist": {
+      // "binary": {
+      //   "arguments": ["lsp", "--mirror", "/tmp/tinymist.log"]
+      // },
+      "initialization_options": {
+        "preview": {
+          "background": {
+            "enabled": true,
+            // "args": [
+            //   "--data-plane-host=127.0.0.1:23635",
+            //   "--invert-colors=never",
+            // ],
+          },
+        },
       },
-      "formatterprosewrap": true,
-      "formattermode": "typstyle",
+      "settings": {
+        "exportpdf": "onsave",
+        "outputpath": "$root/$name",
+        "lint": {
+          "enabled": true,
+          "when": "ontype",
+        },
+        "formatterprosewrap": true,
+        "formattermode": "typstyle",
+      },
     },
-  },
   },
   "minimap": {
     "show": "always",
   },
   "show_edit_predictions": true,
+  "node": {
+    "ignore_system_version": true,
+  },
 }

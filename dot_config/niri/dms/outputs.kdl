@@ -4,20 +4,17 @@ output "DP-6" {
     mode "1920x1080@100.000"
     scale 1
     position x=0 y=72
-    variable-refresh-rate
 }
 
 output "DP-5" {
     mode "3840x2160@59.997"
     scale 1.875
     position x=1920 y=0
-    variable-refresh-rate
 }
 
 output "DP-4" {
     mode "3840x2160@59.997"
     scale 1.875
     position x=3968 y=0
-    variable-refresh-rate
 }
 
