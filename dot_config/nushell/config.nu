@@ -23,10 +23,10 @@ source ~/.zoxide.nu
 # Load configuration
 source "title.nu"
 source "completions.nu"
-source "kubectl-utils.nu"
+# source "kubectl-utils.nu"
 source "aliases.nu"
 source "themes/catppuccin_mocha.nu"
-source "helpers/kubernetes.nu"
+use "psub.nu" *
 
 $env.config.edit_mode = 'vi'
 $env.config.cursor_shape = {

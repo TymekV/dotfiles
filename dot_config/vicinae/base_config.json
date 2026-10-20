@@ -27,6 +27,132 @@
     }
   },
   "providers": {
+    "@bastiangx/store.vicinae.crates-io": {
+      "entrypoints": {
+        "search-crates": {
+          "alias": "c"
+        }
+      }
+    },
+    "@bl4zee1g/store.vicinae.bitwarden": {
+      "preferences": {
+        "rbwPath": "rbw"
+      },
+      "entrypoints": {
+        "browse-vault": {
+          "alias": "b"
+        }
+      }
+    },
+    "@fbosch/store.vicinae.nerdfont-search": {
+      "entrypoints": {
+        "nerdfonts-search": {
+          "alias": "n:"
+        }
+      }
+    },
+    "@fbosch/store.vicinae.protondb-search": {
+      "entrypoints": {
+        "protondb-search": {
+          "alias": "pro"
+        }
+      }
+    },
+    "@knoopx/store.vicinae.github": {
+      "preferences": {
+        "defaultIssueFilter": "my",
+        "defaultRepositoryFilter": "my",
+        "numberOfResults": "50"
+      },
+      "entrypoints": {
+        "createIssue": {
+          "enabled": false
+        },
+        "createPullRequest": {
+          "enabled": false
+        },
+        "issues": {
+          "enabled": false
+        },
+        "pullRequests": {
+          "enabled": false
+        },
+        "searchRepositories": {
+          "alias": "gh r"
+        },
+        "workflowRuns": {
+          "enabled": false
+        }
+      }
+    },
+    "@mitsimi/store.raycast.gitea": {
+      "preferences": {
+        "serverUrl": "https://git.agin.rocks",
+        "cloneProtocol": "ssh",
+        "dateFormat": "YYYY-MM-DD",
+        "editorCursor": true,
+        "editorIntelliJ": true,
+        "editorVSCode": true,
+        "editorZed": true
+      },
+      "entrypoints": {
+        "repository-explore": {
+          "alias": "ga r"
+        }
+      }
+    },
+    "@pavle99/store.vicinae.zed-recents": {
+      "entrypoints": {
+        "open-recents": {
+          "alias": "z"
+        }
+      }
+    },
+    "@thomaslombart/store.raycast.github": {
+      "preferences": {
+        "defaultSearchTerms": "author:@me",
+        "includeTeamReviewRequests": true,
+        "isOpenInBrowser": false,
+        "repositoryCloneProtocol": "ssh",
+        "repositoryFilterMode": "all",
+        "vscodeBuild": "vscode"
+      },
+      "entrypoints": {
+        "my-pull-requests": {
+          "alias": "gh pr"
+        },
+        "search-repositories": {
+          "alias": "gh r",
+          "enabled": false,
+          "preferences": {
+            "application": "/Applications/Visual Studio Code.app",
+            "disableThrottle": false,
+            "displayOwnerName": false,
+            "includeArchived": false,
+            "includeForks": true
+          }
+        }
+      }
+    },
+    "calculator": {
+      "preferences": {
+        "backend": "soulver-core"
+      }
+    },
+    "clipboard": {
+      "preferences": {
+        "monitoring": true
+      }
+    },
+    "snippets": {
+      "preferences": {
+        "enabled": true,
+        "keyDelay": "2",
+        "layout": "",
+        "prePasteDelay": "0",
+        "undo": true
+      }
+    },
     "@Costeer/store.vicinae.color-converter": {
       "entrypoints": {
         "convert-color": {

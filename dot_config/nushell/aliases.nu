@@ -1,13 +1,16 @@
 alias cd = z
-alias cat = bat
 alias dc = docker compose
 alias nu-mkdir = mkdir
 alias mkdir = ^mkdir
 alias p = cd ~/Documents/Projekty
 alias o = open
-alias open = ^open
+alias zed = zeditor
+if $nu.os-info.name == "macos" {
+    alias open = ^open
+}
 # kubectl is aliased in kubectl.nu
-# alias k = kubectl
+alias k = kubectl
+alias codex = codex --no-daemon
 # alias ls = eza
 
 # Camera
@@ -45,4 +48,32 @@ def esc [repo: string, ...args: string] {
 
 def kwc [repo: string, ...args: string] {
     ^git clone $"ssh://git@rizznode:7505/($repo).git" ...$args
+}
+
+def is-image [path: string] {
+    const IMAGE_EXTENSIONS = [png jpg jpeg gif webp]
+    ($path | path type) == "file" and (
+        $path
+        | path parse
+        | get extension
+        | str lowercase
+    ) in $IMAGE_EXTENSIONS
+}
+
+def cat [...args: string] {
+    let images = $args | where {|arg|
+        is-image $arg
+    }
+
+    let text = $args | where {|arg|
+        not (is-image $arg)
+    }
+
+    if ($text | is-not-empty) {
+        ^bat ...$text
+    }
+
+    for image in $images {
+        ^kitty +kitten icat $image
+    }
 }

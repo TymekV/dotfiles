@@ -20,9 +20,11 @@
 $env.USE_CCACHE = 1
 $env.CCACHE_EXEC = "/usr/bin/ccache"
 $env.EDITOR = "nvim"
-$env.VISUAL = "zed --wait"
+$env.VISUAL = "zeditor --wait"
 $env.config.buffer_editor = "nvim"
 $env.SOPS_AGE_KEY_FILE = ($env.HOME | path join ".config/sops/age/keys.txt")
+$env.KUSTOMIZE_PLUGIN_PATH = "/opt/kustomize/"
+$env.THEOS = "~/theos"
 $env.PATH ++= [
     ($env.HOME | path join ".local/bin"),
     ($env.HOME | path join ".cargo/bin")
@@ -44,4 +46,3 @@ source "themes/fzf_catppuccin_mocha.nu"
 source "keybinds.nu"
 
 zoxide init nushell | save -f ~/.zoxide.nu
-

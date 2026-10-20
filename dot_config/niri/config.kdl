@@ -122,6 +122,7 @@ blur {
 window-rule {
     match app-id="^kitty$"
     match app-id="^zen$"
+    match app-id="^org.mozilla.Thunderbird$"
 
     background-effect {
         blur true
@@ -162,6 +163,8 @@ window-rule {
 // Hide Bitwarden
 window-rule {
     match app-id="Bitwarden"
+    match title=r#"^Extension: \(Bitwarden Password Manager\)"#
+
     block-out-from "screencast"
 }
 
@@ -194,6 +197,12 @@ window-rule {
   }
 }
 
+window-rule {
+  match app-id="org.gnome.NautilusPreviewer"
+  open-floating true
+  border { off; }
+}
+
 // Hide DMS notes and clipboard
 layer-rule {
   match namespace="dms:slideout"
@@ -207,7 +216,7 @@ binds {
 
   Mod+RETURN  hotkey-overlay-title="Open Kitty" { spawn "kitty"; }
   Mod+Z       hotkey-overlay-title="Open Zen Browser" { spawn "zen-browser"; }
-  Mod+Shift+Z hotkey-overlay-title="Open Zed Editor" { spawn "zed"; }
+  Mod+Shift+Z hotkey-overlay-title="Open Zed Editor" { spawn "zeditor"; }
   Mod+S       hotkey-overlay-title="Open Signal" { spawn "signal-desktop"; }
   MOD+SPACE   hotkey-overlay-title="Open App Launcher" repeat=false { spawn "vicinae" "toggle"; } // { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
   MOD+V       hotkey-overlay-title="Open Clipboard Manager" { spawn "vicinae" "vicinae://launch/clipboard/history"; } // { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
@@ -217,6 +226,8 @@ binds {
   Mod+D       hotkey-overlay-title="Open Discord" { spawn "discord"; }
   Mod+Shift+T hotkey-overlay-title="Open Solidtime" { spawn "solidtime"; }
   Mod+W       hotkey-overlay-title="Control WLED" { spawn "vicinae" "vicinae://launch/@creative-koda-lab/store.raycast.wled-controller/index"; }
+  Mod+Ctrl+Z  hotkey-overlay-title="Zed recent projects" { spawn "vicinae" "vicinae://launch/@pavle99/store.vicinae.zed-recents/open-recents"; }
+  Mod+B       hotkey-overlay-title="Browse Bitwarden vault" { spawn "vicinae" "vicinae://launch/@bl4zee1g/store.vicinae.bitwarden/browse-vault"; }
   Mod+A       hotkey-overlay-title="Toggle control center" { spawn "dms" "ipc" "control-center" "toggle"; }
 
   Mod+Ctrl+Alt+C hotkey-overlay-title="Toggle secondary displays" { spawn "nu" "~/.config/niri/scripts/toggleDisplays.nu"; }
@@ -358,7 +369,7 @@ binds {
   Mod+M       { maximize-column; }
   Mod+Shift+M { fullscreen-window; }
   Mod+Alt+M   { toggle-windowed-fullscreen; }
-  Mod+Ctrl+M  { expand-column-to-available-width; }
+  Mod+Ctrl+M  { maximize-window-to-edges; }
 
   Mod+C      { center-column; }
   Mod+Ctrl+C { center-visible-columns; }
