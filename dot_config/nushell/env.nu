@@ -29,6 +29,7 @@ $env.PATH ++= [
     ($env.HOME | path join ".local/bin"),
     ($env.HOME | path join ".cargo/bin")
 ]
+$env.IDAPYTHON_VENV_EXECUTABLE = $"($env.home)/.idapro/venv/bin/python"
 
 source "secrets.nu"
 
