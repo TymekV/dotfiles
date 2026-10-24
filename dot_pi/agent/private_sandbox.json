@@ -1,0 +1,54 @@
+{
+  "enabled": true,
+  "permissionPromptTimeoutSeconds": 600,
+  "network": {
+    "allowLocalBinding": true,
+    "allowedDomains": [
+      "localhost",
+      "127.0.0.1",
+
+      "pypi.org",
+      "files.pythonhosted.org",
+
+      "registry.npmjs.org",
+
+      "crates.io",
+      "index.crates.io",
+      "static.crates.io",
+
+      "github.com", 
+      "api.github.com",
+      "codeload.github.com",
+      "raw.githubusercontent.com"
+    ],
+    "deniedDomains": []
+  },
+  "filesystem": {
+    "denyRead": [
+      "/home",
+      "~/.cargo/credentials.toml",
+      ".env.production"
+    ],
+    "allowRead": [
+      "~/.rustup",
+      "~/.local/bin",
+      "~/.local/share/uv"
+    ],
+    "allowWrite": [
+      ".",
+      "/tmp",
+      "~/.cargo",
+      "~/.cache/pip",
+      "~/.cache/uv",
+      "~/.npm",
+      "~/.local/share/pnpm",
+      "~/.cache/pnpm",
+      "~/.cache/sccache"
+    ],
+    "denyWrite": [
+      ".git",
+      "~/.cargo/bin",
+      "~/.cargo/config.toml"
+    ]
+  }
+}
