@@ -1,0 +1,21 @@
+{
+  "lastChangelogVersion": "1.4.0",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-flash",
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "packages": [
+    "npm:pi-web-access",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@narumitw/pi-usage",
+    "npm:@j1nn0/pi-exit",
+    "npm:pi-btw",
+    "npm:pi-hashline-edit-pro",
+    "npm:pi-sandbox",
+    "git:github.com/HexRaysSA/ida-mcp@latest",
+    "npm:catppuccin-pi-theme"
+  ],
+  "theme": "catppuccin-mocha"
+}
