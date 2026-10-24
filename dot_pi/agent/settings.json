@@ -15,7 +15,8 @@
     "npm:pi-hashline-edit-pro",
     "npm:pi-sandbox",
     "git:github.com/HexRaysSA/ida-mcp@latest",
-    "npm:catppuccin-pi-theme"
+    "npm:catppuccin-pi-theme",
+    "npm:pi-vim"
   ],
   "theme": "catppuccin-mocha"
 }
