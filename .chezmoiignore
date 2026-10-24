@@ -23,3 +23,7 @@ Library/Application Support/nushell
 {{ if ne .chezmoi.hostname "tymek-framework" -}}
 .config/niri/laptop.kdl
 {{ end -}}
+
+{{ if ne .chezmoi.hostname "tymek-arch" -}}
+.config/niri/workspaces.kdl
+{{ end -}}

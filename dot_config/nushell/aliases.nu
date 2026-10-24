@@ -42,6 +42,10 @@ def ghc [repo: string, ...args: string] {
     ^git clone $"ssh://git@github.com/($repo).git" ...$args
 }
 
+def hc [repo: string, ...args: string] {
+    ^git clone $"ssh://git@git.hener.app/($repo).git" ...$args
+}
+
 def esc [repo: string, ...args: string] {
     ^git clone $"ssh://git@git.e-science.pl/($repo).git" ...$args
 }

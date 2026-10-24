@@ -3,7 +3,7 @@ include "dms/alttab.kdl"
 include "dms/wpblur.kdl"
 include "dms/cursor.kdl"
 include "dms/outputs.kdl"
-include "workspaces.kdl"
+include optional=true "workspaces.kdl"
 include optional=true "laptop.kdl"
 
 input {
