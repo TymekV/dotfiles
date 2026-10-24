@@ -26,4 +26,5 @@ Library/Application Support/nushell
 
 {{ if ne .chezmoi.hostname "tymek-arch" -}}
 .config/niri/workspaces.kdl
+.config/niri/pc.kdl
 {{ end -}}

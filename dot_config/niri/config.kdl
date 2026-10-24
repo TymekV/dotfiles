@@ -5,6 +5,7 @@ include "dms/cursor.kdl"
 include "dms/outputs.kdl"
 include optional=true "workspaces.kdl"
 include optional=true "laptop.kdl"
+include optional=true "pc.kdl"
 
 input {
   keyboard {
