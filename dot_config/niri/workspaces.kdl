@@ -4,6 +4,7 @@ workspace "chat" {
 
 window-rule {
     match app-id="feishin"
+    match app-id="rufin"
     match app-id="discord"
     match app-id="signal"
     match app-id="solidtime"
